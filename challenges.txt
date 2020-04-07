@@ -1,0 +1,75 @@
+
+//Questions 
+
+1. Given an array of integers, return a new array such that each element at index i of the new array is the product of all the numbers in the original array except the one at i.
+For example, if our input was [1, 2, 3, 4, 5], the expected output would be [120, 60, 40, 30, 24]. If our input was [3, 2, 1], the expected output would be [2, 3, 6].
+
+Solution:
+//JavaScript way
+
+function product(arr, len){
+    var left = [];
+    var right = [];
+    var prod = [];
+
+    left[0]=1;
+    for(var i=1; i<len; i++){
+      left[i] = left[i-1] * arr[i-1]
+    }
+
+    right[len - 1] = 1;
+    for(var j=(len -2); j >= 0; j--){
+      right[j] = right[j+1] * arr[j+1]
+    }
+
+    for(var k = 0; k < len; k++){
+      prod[k] = left[k] * right[k];
+    }
+return prod;
+
+  }
+
+  var arr = [5,10,50];
+  var len = arr.length;
+
+  console.log(product(arr,len));
+
+
+2. Reverse a String
+
+Solution 
+
+//Java way
+package gui;
+
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
+public class Main {
+    
+    public static void main(String[] args) {
+        String name = "Jeewan";
+        //creating array of string length
+        char[] newNameArray = new char[name.length()];
+        
+        //copy character by character into array
+        for (int i = 0; i < name.length(); i++) {
+            newNameArray[i] = name.charAt(name.length()-(i+1));
+        }
+        
+        for (char c : newNameArray) {
+            System.out.print(c);
+        }
+    }
+}
+
+//JavaScript way
+
+function reverse(word){
+    return word.split("").reverse().join("");
+}
+
+console.log(reverse("What a Day"));
